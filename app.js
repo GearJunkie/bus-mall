@@ -23,11 +23,11 @@ let rightProduct = null;
 
 //-------------------constructor function------------------------//
 
-function Products(name, image) {
+function Products(name, image, timesShown, votes) {
   this.name = name;
   this.image = image;
-  this.timesShown = 0;
-  this.votes = 0;
+  this.timesShown = timesShown;
+  this.votes = votes;
 
   Products.potentialProducts.push(this);
 }
@@ -65,20 +65,20 @@ function pickThreeProducts() {
   rightProduct.renderSingleProduct(rightImgElem, rightH2Elem);
 }
 
-function renderResults() {
-  resultsUlElem.innerHTML = "";
+// function renderResults() {
+//   resultsUlElem.innerHTML = "";
 
-  for (let product of Products.potentialProducts) {
-    let liElem = document.createElement("li");
-    liElem.textContent = `${product.name}: ${product.votes}`;
-    resultsUlElem.appendChild(liElem);
-  }
-}
+//   for (let product of Products.potentialProducts) {
+//     let liElem = document.createElement("li");
+//     liElem.textContent = `${product.name}: ${product.votes}`;
+//     resultsUlElem.appendChild(liElem);
+//   }
+// }
 
 function productClick(event) {
   let id = event.target.id;
   if (voteCounter === 25) {
-    renderResults();
+    // renderResults();
     addProductChart();
     return
   }
@@ -92,6 +92,7 @@ function productClick(event) {
       middleProduct.votes++;
     } 
     pickThreeProducts();
+    storeProducts();
   } else {
     alert("try again");
   }
@@ -225,6 +226,29 @@ function addProductChart() {
   });
 
 }
+
+function storeProducts() {
+  let stringifiedProducts = JSON.stringify(Products.potentialProducts);
+  localStorage.setItem("resultedProducts", stringifiedProducts);
+}
+
+function retrieveProducts() {
+  let possibleProducts = localStorage.getItem("resultedProducts");
+  if (possibleProducts) {
+    let parsedProducts = JSON.parse(possibleProducts);
+    console.log(parsedProducts);
+    for (let resultedProducts of parsedProducts) {
+      console.log(resultedProducts);
+      let name = resultedProducts.name;
+      let image = resultedProducts.image;
+      let timesShown = resultedProducts.timesShown;
+      let votes = resultedProducts.votes;
+      new Products(name, image, timesShown, votes);
+
+      //------is the above function the correct one to invoke ?------//
+    }
+  }
+}
 //--------------------------event listner-------------------------------//
 
 productSelectorElem.addEventListener("click", productClick);
@@ -232,25 +256,28 @@ productSelectorElem.addEventListener("click", productClick);
 
 //------------------------call functions-----------------------------//
 
-new Products("bag", "./images/bag.jpg");
-new Products("banana", "./images/banana.jpg");
-new Products("bathroom", "./images/bathroom.jpg");
-new Products("boots", "./images/boots.jpg");
-new Products("breakfast", "./images/breakfast.jpg");
-new Products("bubblegum", "./images/bubblegum.jpg");
-new Products("chair", "./images/chair.jpg");
-new Products("cthulhu", "./images/cthulhu.jpg");
-new Products("dog-duck", "./images/dog-duck.jpg");
-new Products("dragon", "./images/dragon.jpg");
-new Products("pen", "./images/pen.jpg");
-new Products("pet-sweep", "./images/pet-sweep.jpg");
-new Products("scissors", "./images/scissors.jpg");
-new Products("shark", "./images/shark.jpg");
-new Products("sweep", "./images/sweep.png");
-new Products("tauntaun", "./images/tauntaun.jpg");
-new Products("unicorn", "./images/unicorn.jpg");
-new Products("water-can", "./images/water-can.jpg");
-new Products("wine-glass", "./images/wine-glass.jpg");
+retrieveProducts();
+
+if (Products.potentialProducts.length < 1) {
+new Products("bag", "./images/bag.jpg", 0, 0);
+new Products("banana", "./images/banana.jpg", 0, 0);
+new Products("bathroom", "./images/bathroom.jpg", 0, 0);
+new Products("boots", "./images/boots.jpg", 0, 0);
+new Products("breakfast", "./images/breakfast.jpg", 0, 0);
+new Products("bubblegum", "./images/bubblegum.jpg", 0, 0);
+new Products("chair", "./images/chair.jpg", 0, 0);
+new Products("cthulhu", "./images/cthulhu.jpg", 0, 0);
+new Products("dog-duck", "./images/dog-duck.jpg", 0, 0);
+new Products("dragon", "./images/dragon.jpg", 0, 0);
+new Products("pen", "./images/pen.jpg", 0, 0);
+new Products("pet-sweep", "./images/pet-sweep.jpg", 0, 0);
+new Products("scissors", "./images/scissors.jpg", 0, 0);
+new Products("shark", "./images/shark.jpg", 0, 0);
+new Products("sweep", "./images/sweep.png", 0, 0);
+new Products("tauntaun", "./images/tauntaun.jpg", 0, 0);
+new Products("unicorn", "./images/unicorn.jpg", 0, 0);
+new Products("water-can", "./images/water-can.jpg", 0, 0);
+new Products("wine-glass", "./images/wine-glass.jpg", 0, 0);
+}
 
 pickThreeProducts();
-
