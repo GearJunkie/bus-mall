@@ -3,13 +3,10 @@
 //------------------------global variables----------------------//
 
 const productSelectorElem = document.getElementById("potential_products");
-// const left_productElem = document.getElementById("left_product");
 const leftImgElem = document.getElementById("left_product_img");
 const leftH2Elem = document.getElementById("left_product_h2");
-// const middle_productElem = document.getElementById("middle_product");
 const middleImgElem = document.getElementById("middle_product_img");
 const middleH2Elem = document.getElementById("middle_product_h2");
-// const right_productElem = document.getElementById("right_product");
 const rightImgElem = document.getElementById("right_product_img");
 const rightH2Elem = document.getElementById("right_product_h2");
 const resultsUlElem = document.getElementById("consumer_results");
@@ -65,16 +62,6 @@ function pickThreeProducts() {
   rightProduct.renderSingleProduct(rightImgElem, rightH2Elem);
 }
 
-// function renderResults() {
-//   resultsUlElem.innerHTML = "";
-
-//   for (let product of Products.potentialProducts) {
-//     let liElem = document.createElement("li");
-//     liElem.textContent = `${product.name}: ${product.votes}`;
-//     resultsUlElem.appendChild(liElem);
-//   }
-// }
-
 function productClick(event) {
   let id = event.target.id;
   if (voteCounter === 25) {
@@ -120,44 +107,8 @@ function addProductChart() {
               data: productVotesArray,
               backgroundColor: [
                 'rgba(54, 162, 235, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
               ],
               borderColor: [
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
               ],
               borderWidth: 1
@@ -166,48 +117,12 @@ function addProductChart() {
               data: productShownArray,
               backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
+              ],
+              borderColor: [
                 'rgba(255, 99, 132, 0.2)',
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(255, 99, 132, 0.2)',
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(255, 99, 132, 0.2)',
-            ],
-            borderWidth: 1
-        }]
+              ],
+              borderWidth: 1
+            }]
       },
       options: {
           scales: {
@@ -237,8 +152,6 @@ function retrieveProducts() {
       let timesShown = resultedProducts.timesShown;
       let votes = resultedProducts.votes;
       new Products(name, image, timesShown, votes);
-
-      //------is the above function the correct one to invoke ?------//
     }
   }
 }
