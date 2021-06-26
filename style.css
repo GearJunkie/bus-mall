@@ -65,12 +65,12 @@ main {
   background-color: skyblue;
   color: darkorchid;
   font-weight: bold;
-  height: 600px;
+  height: 500px;
   position: relative;
   border-style: double;
   border-width: 10px;
   padding: 10px;
-  margin: 3%;
+  margin-top: 1%;
 }
 
 #potential_products h1 {
@@ -78,11 +78,11 @@ main {
   padding: 10px;
   color: darkorchid;
   text-decoration-line: underline;
-  font-size: 2em;
+  font-size: 1.5em;
 }
 
 #left_product {
-  height: 400px;
+  height: 300px;
   display: inline-block;
   margin: 1%;
 }
@@ -99,9 +99,9 @@ main {
 }
 
 #middle_product {
-  height: 400px;
+  height: 300px;
   display: inline-block;
-  margin: 1%;
+  margin: 0.5%;
 }
 
 #middle_product_img {
@@ -110,8 +110,13 @@ main {
   border-radius: 10px;
 }
 
+#middle_product_h2 {
+  padding: 0px;
+  margin: 0%;
+}
+
 #right_product {
-  height: 400px;
+  height: 300px;
   display: inline-block;
   margin: 1%;
 }
@@ -125,7 +130,7 @@ main {
 }
 
 #results {
-  margin-top: 3%;
+  margin-top: 1%;
   position: relative;
   border-style: double;
   border-width: 10px;
